@@ -286,8 +286,10 @@ int execute(int *exitcode) {
                 if (current_stack != 21) {
                     push(a);
                 } else {
-                    if (queue_front == &stack[21][0]) // no space before front
-                        memmove(queue_front + 1, queue_front, current_stack_top - queue_front);
+                    if (queue_front == &stack[21][0]) { // no space before front
+                        memmove(queue_front + 2, queue_front + 1, current_stack_top - queue_front);
+                        current_stack_top = ++stack_top[21];
+                    }
                     *queue_front = a;
                     queue_front--;
                 }
