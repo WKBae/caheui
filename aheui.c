@@ -288,7 +288,7 @@ int execute(int *exitcode) {
                 } else {
                     if (queue_front == &stack[21][0]) { // no space before front
                         memmove(queue_front + 2, queue_front + 1, current_stack_top - queue_front);
-                        current_stack_top = ++stack_top[21];
+                        current_stack_top++;
                     }
                     *queue_front = a;
                     queue_front--;
